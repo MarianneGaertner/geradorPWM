@@ -1,0 +1,26 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst microcontrolador.pinos_saida_D -pg 1 -lvl 3 -y 210
+preplace inst microcontrolador.sys_timer -pg 1 -lvl 3 -y 310
+preplace inst microcontrolador.pinos_saida_div -pg 1 -lvl 3 -y 590
+preplace inst microcontrolador.nios2 -pg 1 -lvl 2 -y 380
+preplace inst microcontrolador.nios2.cpu -pg 1
+preplace inst microcontrolador.clk -pg 1 -lvl 1 -y 380
+preplace inst microcontrolador.jtag_uart -pg 1 -lvl 3 -y 110
+preplace inst microcontrolador.pinos_saida_max -pg 1 -lvl 3 -y 490
+preplace inst microcontrolador.nios2.reset_bridge -pg 1
+preplace inst microcontrolador.onchip_mem -pg 1 -lvl 3 -y 30
+preplace inst microcontrolador.nios2.clock_bridge -pg 1
+preplace inst microcontrolador.sysid -pg 1 -lvl 3 -y 410
+preplace inst microcontrolador -pg 1 -lvl 1 -y 40 -regy -20
+preplace netloc EXPORT<net_container>microcontrolador</net_container>(SLAVE)microcontrolador.pinos_saidad_external_connection,(SLAVE)pinos_saida_D.external_connection) 1 0 3 NJ 240 NJ 240 NJ
+preplace netloc EXPORT<net_container>microcontrolador</net_container>(SLAVE)microcontrolador.clk,(SLAVE)clk.clk_in) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>microcontrolador</net_container>(MASTER)clk.clk,(SLAVE)sysid.clk,(SLAVE)nios2.clk,(SLAVE)onchip_mem.clk1,(SLAVE)pinos_saida_max.clk,(SLAVE)pinos_saida_D.clk,(SLAVE)jtag_uart.clk,(SLAVE)sys_timer.clk,(SLAVE)pinos_saida_div.clk) 1 1 2 430 540 870
+preplace netloc INTERCONNECT<net_container>microcontrolador</net_container>(SLAVE)nios2.debug_mem_slave,(SLAVE)sys_timer.s1,(MASTER)nios2.data_master,(SLAVE)sysid.control_slave,(SLAVE)pinos_saida_D.s1,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)pinos_saida_div.s1,(SLAVE)pinos_saida_max.s1,(SLAVE)onchip_mem.s1,(MASTER)nios2.instruction_master) 1 1 2 450 660 850
+preplace netloc EXPORT<net_container>microcontrolador</net_container>(SLAVE)microcontrolador.reset,(SLAVE)clk.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>microcontrolador</net_container>(SLAVE)microcontrolador.pinos_saida_div_external_connection,(SLAVE)pinos_saida_div.external_connection) 1 0 3 NJ 620 NJ 620 NJ
+preplace netloc FAN_OUT<net_container>microcontrolador</net_container>(SLAVE)jtag_uart.irq,(MASTER)nios2.irq,(SLAVE)sys_timer.irq) 1 2 1 810
+preplace netloc EXPORT<net_container>microcontrolador</net_container>(SLAVE)microcontrolador.pinos_saida_max_external_connection,(SLAVE)pinos_saida_max.external_connection) 1 0 3 NJ 520 NJ 520 NJ
+preplace netloc INTERCONNECT<net_container>microcontrolador</net_container>(SLAVE)pinos_saida_max.reset,(SLAVE)nios2.reset,(SLAVE)pinos_saida_div.reset,(MASTER)clk.clk_reset,(SLAVE)sys_timer.reset,(SLAVE)pinos_saida_D.reset,(SLAVE)sysid.reset,(MASTER)nios2.debug_reset_request,(SLAVE)onchip_mem.reset1,(SLAVE)jtag_uart.reset) 1 1 2 410 640 830
+levelinfo -pg 1 0 200 1080
+levelinfo -hier microcontrolador 210 240 570 920 1070

@@ -1,0 +1,9 @@
+# Arquivos gerados 
+db/
+incremental_db/
+output_files/
+
+# Logs e temp
+*.log
+*.bak
+*.tmp
